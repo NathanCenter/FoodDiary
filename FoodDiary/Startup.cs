@@ -1,3 +1,4 @@
+using FoodDiary.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,7 +30,8 @@ namespace FoodDiary
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var firebaseProjectId = Configuration.GetValue<string>("fooddiary-1fbb2");
+            services.AddTransient<IFoodRepository, FoodRepository>();
+            var firebaseProjectId = Configuration.GetValue<string>("FirebaseProjectId");
             var googleTokenUrl = $"https://securetoken.google.com/{firebaseProjectId}";
             services
                 .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
