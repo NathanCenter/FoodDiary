@@ -6,11 +6,12 @@ import { register } from "../modules/authManager";
 export default function Register() {
   const history = useHistory();
 
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
+ 
+  const [name, setName] = useState();
 
   const [email, setEmail] = useState();
   const [height,setHeight]=useState();
+ 
   const [weight,setWeight]=useState();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
@@ -20,7 +21,7 @@ export default function Register() {
     if (password && password !== confirmPassword) {
       alert("Passwords don't match. Do better.");
     } else {
-      const userProfile = { firstName, lastName, email,height,weight };
+      const userProfile = { name, email,height,weight };
       register(userProfile, password)
         .then(() => history.push("/"));
     }
@@ -30,12 +31,8 @@ export default function Register() {
     <Form onSubmit={registerClick}>
       <fieldset>
         <FormGroup>
-          <Label htmlFor="firstName">First Name</Label>
-          <Input id="firstName" type="text" onChange={e => setFirstName(e.target.value)} />
-        </FormGroup>
-        <FormGroup>
-          <Label htmlFor="lastName">Last Name</Label>
-          <Input id="lastName" type="text" onChange={e => setLastName(e.target.value)} />
+        <Label for="Name">name</Label>
+          <Input id="Name" type="text" onChange={e => setName(e.target.value)} />
         </FormGroup>
         
         <FormGroup>
