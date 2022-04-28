@@ -10,6 +10,7 @@ import {
   NavLink
 } from 'reactstrap';
 import { logout } from '../modules/authManager';
+import Login from "../modules/Login";
 
 export default function Header({ isLoggedIn }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,35 +19,14 @@ export default function Header({ isLoggedIn }) {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavbarBrand tag={RRNavLink} to="/">
-          Tabloid
-        </NavbarBrand>
-        <NavbarToggler onClick={toggle} />
+        
+        
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             {/* When isLoggedIn === true, we will render the Home link */}
             {isLoggedIn && (
               <>
-              <NavItem>
-                <NavLink tag={RRNavLink} to="/">Home</NavLink>
-              </NavItem>
-              <NavItem>
-                  <NavLink tag={RRNavLink} to="/posts">Posts</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={RRNavLink} to="/MyPosts">My Posts</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={RRNavLink} to="/posts/new">Create Post</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={RRNavLink} to="/category">
-                  Categories
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={RRNavLink} to="/Tag" >Tag Managment</NavLink>
-              </NavItem>
+           
              </>
             )}
           </Nav>
@@ -71,6 +51,7 @@ export default function Header({ isLoggedIn }) {
                   <NavLink tag={RRNavLink} to="/login">
                     Login
                   </NavLink>
+                  
                 </NavItem>
                 <NavItem>
                   <NavLink tag={RRNavLink} to="/register">
