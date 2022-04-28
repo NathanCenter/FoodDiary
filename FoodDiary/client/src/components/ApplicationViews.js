@@ -1,21 +1,15 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Login from "./Login";
-import Register from "./Register";
-
+import Login from "../modules/Login";
+import { register } from "../modules/authManager";
 
 
 export default function ApplicationViews({ isLoggedIn }) {
   return (
     <main>
       <Switch>
-        <Route path="/" exact>
-          {isLoggedIn ? <Hello /> : <Redirect to="/login" />}
-        </Route>
-
-        <Route path="/posts" exact>
-          {isLoggedIn ? <PostList /> : <Redirect to="/login" />}
-        </Route>
+       <h1>test</h1>
+         
 
         
        

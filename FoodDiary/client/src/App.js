@@ -1,7 +1,11 @@
-import logo from './logo.svg';
+import React, { useState,useEffect } from "react";
 import './App.css';
-import { Route } from 'react-router-dom';
-import ApplicationViews from './components/ApplicationViews';
+import Header from "./components/Header";
+import { Spinner } from "reactstrap";
+import ApplicationViews from "./components/ApplicationViews";
+import {onLoginStatusChange} from "./modules/authManager"
+import { BrowserRouter as Router } from "react-router-dom";
+
 function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(null);
@@ -18,8 +22,8 @@ function App() {
   }
   return (
     <Router>
-        <Header isLoggedIn={isLoggedIn} />
-        <ApplicationViews isLoggedIn={isLoggedIn} />
+      <Header isLoggedIn={isLoggedIn}/>
+      <ApplicationViews isLoggedIn={isLoggedIn}/>
     </Router>
   );
 }
