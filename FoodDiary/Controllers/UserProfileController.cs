@@ -39,7 +39,7 @@ namespace FoodDiary.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(UserProfile userProfile)
+        public IActionResult Post(UserProfile userProfile)
         {
             
             _userProfileRepository.Add(userProfile);
