@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "52m0yUMGU7o9le1DfxiNFCfqlPYXYwJpemsIoAexTQ4AARbW1aTORFrU6RnQd8DrXioIGIX5XJ/LsTgsgEQr4Q==",
+  "dgSpecHash": "bhUsbTZwxpw8S4ucM6cUgCzXviwZvec/8+1QNaVoMF/I0y8wIIYe9HkzP/L95MVGfahSXis3lfZArWPdQ6I9Cw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nathan\\workspace\\FullStackCapStone\\FoodDiary\\FoodDiary\\FoodDiary.csproj",
+  "projectFilePath": "C:\\Users\\Nathan\\workspace\\fullStackCapStone\\FoodDiary\\FoodDiary\\FoodDiary.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nathan\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",
     "C:\\Users\\Nathan\\.nuget\\packages\\azure.identity\\1.3.0\\azure.identity.1.3.0.nupkg.sha512",
