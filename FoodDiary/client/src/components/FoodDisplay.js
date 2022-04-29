@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from "react";
 import { getAllFood } from "../modules/FoodManager";
+import { getFoodbyUserID } from "../modules/FoodManager";
 const FoodDisplay=()=>{
     var today = new Date(),
 
-      date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+      date = today.getFullYear() + '-' + '0'+(today.getMonth() + 1) + '-' + today.getDate();
     const [ foods, setFoods ] = useState([]);
     useEffect(() => {
-        getAllFood().then(setFoods);
+        getFoodbyUserID(date).then(setFoods);
       }, []);
     return (
         <>
@@ -15,7 +16,7 @@ const FoodDisplay=()=>{
         
         
             {foods.map(f=>{
-               return <h2 key={f.id}>{f.foodName} {f.foodSchedule.meal}</h2>
+               return <h2 key={f.id}>{f.foodName}</h2>
 
             })}
         

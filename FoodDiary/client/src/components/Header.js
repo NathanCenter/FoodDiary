@@ -45,7 +45,7 @@ export default function Header({ isLoggedIn }) {
                   
                   </a>
                 </NavItem>
-                <Route path="/Food" exact>
+                <Route path="/FoodSchedule" exact>
                 <FoodDisplay/>
                 </Route>
                

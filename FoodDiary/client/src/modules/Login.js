@@ -12,7 +12,7 @@ export default function Login() {
   const loginSubmit = (e) => {
     e.preventDefault();
     login(email, password)
-      .then(() => history.push("/Food"))
+      .then(() => history.push("/FoodSchedule"))
       .catch(() => alert("Invalid email or password"));
   };
 

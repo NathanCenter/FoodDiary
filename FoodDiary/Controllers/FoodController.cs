@@ -2,16 +2,22 @@
 using System;
 using FoodDiary.Repositories;
 using FoodDiary.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
+
 namespace FoodDiary.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class FoodController : Controller
     {
         private readonly IFoodRepository _foodRepository;
-        public FoodController(IFoodRepository foodRepository)
+        private readonly IUserProfileRepository _userProfileRepository;
+        public FoodController(IFoodRepository foodRepository,IUserProfileRepository userProfileRepository)
         {
             _foodRepository = foodRepository;
+            _userProfileRepository = userProfileRepository;
         }
         [HttpGet("GetAll")]
         public IActionResult GetAll()
@@ -19,5 +25,21 @@ namespace FoodDiary.Controllers
             var foods = _foodRepository.GetAll();
             return Ok(foods);
         }
+
+       
+        [HttpGet("FoodSchedule/{dateTime}")]
+        public IActionResult GetFoodScheduleByUserId(DateTime dateTime)
+        {
+            var foods = _foodRepository.GetFoodScheduleByUserId(GetCurrentUserProfile().Id, dateTime);
+            return Ok(foods);
+        }
+        
+        private UserProfile GetCurrentUserProfile()
+        {
+            var firebaseUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            return _userProfileRepository.GetByFirebaseUserId(firebaseUserId);
+        }
+
+
     }
 }
