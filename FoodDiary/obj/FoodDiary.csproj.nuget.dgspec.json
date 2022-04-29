@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nathan\\workspace\\fullStackCapStone\\FoodDiary\\FoodDiary\\FoodDiary.csproj": {}
+    "C:\\Users\\Nathan\\workspace\\FullStackCapStone\\FoodDiary\\FoodDiary\\FoodDiary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nathan\\workspace\\fullStackCapStone\\FoodDiary\\FoodDiary\\FoodDiary.csproj": {
+    "C:\\Users\\Nathan\\workspace\\FullStackCapStone\\FoodDiary\\FoodDiary\\FoodDiary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nathan\\workspace\\fullStackCapStone\\FoodDiary\\FoodDiary\\FoodDiary.csproj",
+        "projectUniqueName": "C:\\Users\\Nathan\\workspace\\FullStackCapStone\\FoodDiary\\FoodDiary\\FoodDiary.csproj",
         "projectName": "FoodDiary",
-        "projectPath": "C:\\Users\\Nathan\\workspace\\fullStackCapStone\\FoodDiary\\FoodDiary\\FoodDiary.csproj",
+        "projectPath": "C:\\Users\\Nathan\\workspace\\FullStackCapStone\\FoodDiary\\FoodDiary\\FoodDiary.csproj",
         "packagesPath": "C:\\Users\\Nathan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nathan\\workspace\\fullStackCapStone\\FoodDiary\\FoodDiary\\obj\\",
+        "outputPath": "C:\\Users\\Nathan\\workspace\\FullStackCapStone\\FoodDiary\\FoodDiary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Nathan\\AppData\\Roaming\\NuGet\\NuGet.Config",
