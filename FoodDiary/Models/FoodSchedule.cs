@@ -12,5 +12,9 @@ namespace FoodDiary.Models
         public DateTime Date { get; set; }
 
         public string Meal { get; set; }
+
+        Food food { get; set; }
+
+        UserProfile UserProfile  { get; set; }
     }
 }
