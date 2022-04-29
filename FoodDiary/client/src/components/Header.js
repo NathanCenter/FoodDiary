@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink as RRNavLink } from "react-router-dom";
+import { NavLink as RRNavLink, Route } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -11,6 +11,7 @@ import {
 } from 'reactstrap';
 import { logout } from '../modules/authManager';
 import Login from "../modules/Login";
+import FoodDisplay from "./FoodDisplay";
 
 export default function Header({ isLoggedIn }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,8 +42,13 @@ export default function Header({ isLoggedIn }) {
                     onClick={logout}
                   >
                     Logout
+                  
                   </a>
                 </NavItem>
+                <Route path="/Food" exact>
+                <FoodDisplay/>
+                </Route>
+               
               </>
             )}
             {!isLoggedIn && (

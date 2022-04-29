@@ -20,7 +20,7 @@ namespace FoodDiary.Repositories
                 conn.Open();
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = @"Select f.Id,f.FoodName,f.Description,f.Caloric,fs.Date as DateAdded, fs.Meal from Food f left join 
+                    cmd.CommandText = @"Select f.Id,f.FoodName,f.Description,f.Caloric,fs.Date as DateAdded,fs.id as FoodScheduleId, fs.Meal,fs.UserProfileId from Food f left join 
                     FoodSchedule fs
                     on f.id=fs.FoodId";
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -36,9 +36,11 @@ namespace FoodDiary.Repositories
                                 Caloric = DbUtils.GetInt(reader, "Caloric"),
                                 FoodSchedule =new FoodSchedule()
                                 {
+                                    Id=DbUtils.GetInt(reader, "FoodScheduleId"),
                                     FoodId = DbUtils.GetInt(reader, "Id"),
                                     Date = DbUtils.GetDateTime(reader, "DateAdded"),
-                                    Meal=DbUtils.GetString(reader,"Meal")
+                                    UserProfileId=DbUtils.GetInt(reader, "UserProfileId"),
+                                    Meal =DbUtils.GetString(reader,"Meal")
                                 }
                             };
                             foods.Add(food);

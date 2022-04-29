@@ -4,6 +4,8 @@ using FoodDiary.Repositories;
 using FoodDiary.Models;
 namespace FoodDiary.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class FoodController : Controller
     {
         private readonly IFoodRepository _foodRepository;
