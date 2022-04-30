@@ -85,7 +85,7 @@ namespace FoodDiary.Repositories
 
 
                             };
-                            FoodSchedule foodSchedule = new FoodSchedule()
+                            food.FoodSchedule = new FoodSchedule()
                             {
                                 Date = DbUtils.GetDateTime(reader, "Date"),
                                 Meal = DbUtils.GetString(reader,"Meal"),

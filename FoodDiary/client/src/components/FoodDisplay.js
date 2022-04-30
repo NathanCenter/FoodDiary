@@ -6,6 +6,7 @@ const FoodDisplay=()=>{
 
       date = today.getFullYear() + '-' + '0'+(today.getMonth() + 1) + '-' + today.getDate();
     const [ foods, setFoods ] = useState([]);
+    
     useEffect(() => {
         getFoodbyUserID(date).then(setFoods);
       }, []);
@@ -16,8 +17,20 @@ const FoodDisplay=()=>{
         
         
             {foods.map(f=>{
-               return <h2 key={f.id}>{f.foodName}</h2>
+             
+               return(
+                 <>
+                  <h3 key={f.id}>{f.foodName}   </h3>
+                  <p>{f.description}</p>
 
+                  <p>Caloric amount: {f.caloric}</p>
+
+                  
+                 </>
+               
+               )
+                
+               
             })}
         
         </>
