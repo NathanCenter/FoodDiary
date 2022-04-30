@@ -33,7 +33,14 @@ namespace FoodDiary.Controllers
             var foods = _foodRepository.GetFoodScheduleByUserId(GetCurrentUserProfile().Id, dateTime);
             return Ok(foods);
         }
-        
+
+        [HttpPost]
+        public IActionResult Post(Food food)
+        {
+            _foodRepository.Add(GetCurrentUserProfile().Id, food);
+            return CreatedAtAction("Get", new { id = food.Id }, food);
+        }
+
         private UserProfile GetCurrentUserProfile()
         {
             var firebaseUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;

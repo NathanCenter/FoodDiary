@@ -12,6 +12,7 @@ namespace FoodDiary.Models
         public string Description { get; set; }
 
         public int Caloric { get; set; }
+        public string ImageURL { get; set; }
 
         public FoodSchedule FoodSchedule { get; set; }
 

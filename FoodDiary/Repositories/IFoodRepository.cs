@@ -9,5 +9,7 @@ namespace FoodDiary.Repositories
         List<Food> GetAll();
         List<Food> GetFoodScheduleByUserId(int id,DateTime dateTime);
 
+        public void Add(int id,Food food);
+
     }
 }

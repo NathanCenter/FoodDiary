@@ -105,5 +105,33 @@ namespace FoodDiary.Repositories
                
             }
         }
+
+        public void Add(int id,Food food)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"Insert Into Food(FoodName,Description,Caloric,ImageURL)
+                        OUTPUT INSERTED.ID
+                        Values(@FoodName,@Description, @Caloric,@ImageURL ) 
+                        SELECT @@IDENTITY 
+                        Insert into FoodSchedule(FoodId,Date,UserProfileId,Meal)
+                        OUTPUT INSERTED.ID
+                        Values((Select id from food as FoodId Where id=@@IDENTITY ),@Date,@UserProfileId,@Meal)";
+                    DbUtils.AddParameter(cmd, "@FoodName", food.FoodName);
+                    DbUtils.AddParameter(cmd, "@Description", food.Description);
+                    DbUtils.AddParameter(cmd, "@Caloric", food.Caloric);
+                    DbUtils.AddParameter(cmd, "@ImageURL", food.ImageURL);
+                    DbUtils.AddParameter(cmd, "@Date", food.FoodSchedule.Date);
+                   
+                    DbUtils.AddParameter(cmd, "@Meal", food.FoodSchedule.Meal);
+                    DbUtils.AddParameter(cmd, "@UserProfileId", id);
+                    food.Id = (int)cmd.ExecuteScalar();
+                }
+
+            }
+        }
     }
 }
