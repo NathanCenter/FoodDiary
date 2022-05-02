@@ -13,7 +13,7 @@ namespace FoodDiary.Models
 
         public string Meal { get; set; }
 
-        Food food { get; set; }
+        Food Food { get; set; }
 
         UserProfile UserProfile  { get; set; }
     }

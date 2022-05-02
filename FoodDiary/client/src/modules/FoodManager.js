@@ -1,3 +1,4 @@
+import FoodSchedule from "../components/FoodScheduleForm";
 import { getToken } from "./authManager";
 const apiUrl = "/api/Food";
 
@@ -35,4 +36,29 @@ export const getAllFood = () => {
         });
       });
 
+      
   }
+
+  export const  addFood=(food) => {
+    return getToken().then((token) =>
+      fetch(`${apiUrl}/add`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(food)
+      }).then(resp => resp.json()));
+  };
+
+  export const addSchedule=(FoodSchedule)=>{
+    return getToken().then((token) =>
+      fetch(`${apiUrl}/FoodSchedule`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(FoodSchedule)
+      }).then(resp => resp.json()));
+  };

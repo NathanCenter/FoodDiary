@@ -27,19 +27,27 @@ namespace FoodDiary.Controllers
         }
 
        
-        [HttpGet("FoodSchedule/{dateTime}")]
-        public IActionResult GetFoodScheduleByUserId(DateTime dateTime)
+        //[HttpGet("FoodSchedule/{dateTime}")]
+        //public IActionResult GetFoodScheduleByUserId(DateTime dateTime)
+        //{
+        //    var foods = _foodRepository.GetFoodScheduleByUserId(GetCurrentUserProfile().Id, dateTime);
+        //    return Ok(foods);
+        //}
+
+        [HttpPost("add")]
+        public IActionResult Post(Food Food)
         {
-            var foods = _foodRepository.GetFoodScheduleByUserId(GetCurrentUserProfile().Id, dateTime);
-            return Ok(foods);
+            _foodRepository.Add(GetCurrentUserProfile().Id, Food);
+            return CreatedAtAction("Post", new { id = Food.Id }, Food);
         }
 
-        [HttpPost]
-        public IActionResult Post(Food food)
-        {
-            _foodRepository.Add(GetCurrentUserProfile().Id, food);
-            return CreatedAtAction("Get", new { id = food.Id }, food);
-        }
+        //[HttpPost("FoodSchedule")]
+        //public IActionResult Post(FoodSchedule foodSchedule)
+        //{
+        //    _foodRepository.addFoodSchedule(GetCurrentUserProfile().Id, foodSchedule);
+        //    return CreatedAtAction("Post", new { id = foodSchedule.Id }, foodSchedule);
+        //}
+
 
         private UserProfile GetCurrentUserProfile()
         {
