@@ -26,7 +26,7 @@ export default function ApplicationViews({ isLoggedIn }) {
       <Route path="/food/add" exact>
         <FoodForm/>
       </Route>
-      <Route path="/Food/FoodSchedule" exact>
+      <Route path="/FoodSchedule/Schedule" exact>
         <FoodSchedule/>
       </Route>
        

@@ -1,6 +1,7 @@
 import FoodSchedule from "../components/FoodScheduleForm";
 import { getToken } from "./authManager";
 const apiUrl = "/api/Food";
+const apiFood = "/api/FoodSchedule";
 
 export const getAllFood = () => {
     return getToken().then((token) => {
@@ -22,7 +23,7 @@ export const getAllFood = () => {
   export const getFoodbyUserID=(date)=>
   {
     return getToken().then((token) => {
-        return fetch(`${apiUrl}/FoodSchedule/${date}`, {
+        return fetch(`${apiFood}/${date}`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`
@@ -52,8 +53,9 @@ export const getAllFood = () => {
   };
 
   export const addSchedule=(FoodSchedule)=>{
+    debugger;
     return getToken().then((token) =>
-      fetch(`${apiUrl}/FoodSchedule`, {
+      fetch(`${apiFood}/Schedule`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

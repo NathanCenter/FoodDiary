@@ -38,7 +38,7 @@ const FoodDisplay=()=>{
                
             })}
             <Link to="/Food/add" > Add Food </Link>
-            <Link to="/Food/FoodSchedule" > Add Food Schedule </Link>
+            <Link to="/FoodSchedule/Schedule" > Add Food Schedule </Link>
         
         </>
     )
