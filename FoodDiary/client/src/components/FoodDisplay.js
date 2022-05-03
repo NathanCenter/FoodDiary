@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import { Link } from 'react-router-dom';
 import { getAllFood } from "../modules/FoodManager";
 import { getFoodbyUserID } from "../modules/FoodManager";
 const FoodDisplay=()=>{
@@ -20,10 +21,14 @@ const FoodDisplay=()=>{
              
                return(
                  <>
-                  <h3 key={f.id}>{f.foodName}   </h3>
+                 <div>
+                 <h3 key={f.id}>{f.foodName}   </h3>
                   <p>{f.description}</p>
 
                   <p>Caloric amount: {f.caloric}</p>
+                 </div>
+                
+
 
                   
                  </>
@@ -32,6 +37,8 @@ const FoodDisplay=()=>{
                 
                
             })}
+            <Link to="/Food/add" > Add Food </Link>
+            <Link to="/FoodSchedule/Schedule" > Add Food Schedule </Link>
         
         </>
     )
