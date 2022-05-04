@@ -22,10 +22,10 @@ const FoodDisplay=()=>{
                return(
                  <>
                  <div>
-                 <h3 key={f.id}>{f.foodName}   </h3>
+                 <h3 key={f.id}>{f.foodName}   </h3> <Link to={`/Food/${f.id}`}>edit</Link>
                   <p>{f.description}</p>
 
-                  <p>Caloric amount: {f.caloric}</p>
+                  <p>Caloric amount: {f.caloric}</p> 
                  </div>
                 
 

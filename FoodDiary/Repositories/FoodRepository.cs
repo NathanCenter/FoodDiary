@@ -45,54 +45,30 @@ namespace FoodDiary.Repositories
             }
         }
 
-        //public List<Food> GetFoodScheduleByUserId(int id,DateTime dateTime)
-        //{
-        //    using (var conn = Connection)
-        //    {
-        //        conn.Open();
-        //        using (var cmd = conn.CreateCommand())
-        //        {
-        //            cmd.CommandText = @"select fs.Id,f.id as FoodId, fs.UserProfileId ,fs.id as ScheduleId, fs.date,fs.meal,f.FoodName,f.Description,f.Caloric from FoodSchedule fs
-        //            left join Food f on fs.FoodId=f.id
-        //            left join UserProfile up on
-        //            fs.UserProfileId=up.Id
-        //            Where up.id=@id
-        //            and
-        //            fs.date=@date";
-        //            DbUtils.AddParameter(cmd, "@id", id);
-        //            DbUtils.AddParameter(cmd,"@date",dateTime);
 
-        //            using (SqlDataReader reader= cmd.ExecuteReader())
-        //            {
-        //                var foods = new List<Food>();
-        //                while (reader.Read())
-        //                {
-        //                    Food food = new Food()
-        //                    {
+        public void Update(Food food)
+        {   
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"UPDATE Food set FoodName=@FoodName, Description=@Description
+                ,Caloric=@Caloric, ImageURL=@ImageURL
+                     where id=@id";
+                    DbUtils.AddParameter(cmd, "@FoodName", food.FoodName);
+                    DbUtils.AddParameter(cmd, "@Description", food.Description);
+                    DbUtils.AddParameter(cmd, "@Caloric", food.Caloric);
+                    DbUtils.AddParameter(cmd, "@ImageURL", food.ImageURL);
+                    DbUtils.AddParameter(cmd, "@id", food.Id);
+                    cmd.ExecuteNonQuery();
 
 
-        //                        Id = DbUtils.GetInt(reader, "FoodId"),
-        //                        FoodName = DbUtils.GetString(reader, "FoodName"),
-        //                        Description = DbUtils.GetString(reader, "Description"),
-        //                        Caloric = DbUtils.GetInt(reader, "Caloric"),
+                }
+            }
+            
+        }
 
-
-        //                    };
-                            
-                          
-
-
-        //                    foods.Add(food);
-        //                }
-        //                return foods;
-        //            }                     
-
-                    
-                    
-        //        }
-               
-        //    }
-        //}
 
         public void Add(int id,Food food)
         {
@@ -119,26 +95,38 @@ namespace FoodDiary.Repositories
 
         }
 
-        //public void addFoodSchedule(int id,FoodSchedule foodSchedule)
-        //{
-        //    using (var conn = Connection)
-        //    {
-        //        conn.Open();
-        //        using (var cmd = conn.CreateCommand())
-        //        {
-        //            cmd.CommandText = @"
-        //    Insert Into FoodSchedule(UserProfileId,FoodId,Date,Meal)
-        //    OUTPUT INSERTED.ID
-        //    Values(@UserProfileId,@FoodId, @Date,@Meal)";
-        //            DbUtils.AddParameter(cmd, "@UserProfileId", foodSchedule.UserProfileId);
-        //            DbUtils.AddParameter(cmd, "@Date", foodSchedule.Date);
-        //            DbUtils.AddParameter(cmd, "@FoodId", foodSchedule.FoodId);
-        //            DbUtils.AddParameter(cmd, "@meal", foodSchedule.Meal);
+        public Food GetById(int id) 
+        { 
+            using (var conn = Connection)
+            {
+                
+                using(var cmd = conn.CreateCommand())
+                {
+                    conn.Open();
+                    cmd.CommandText = @"select FoodName, Description,Caloric,ImageURL from food
+                        where id=@id";
 
-        //            foodSchedule.Id = (int)cmd.ExecuteScalar();
+                    DbUtils.AddParameter(cmd, "@id", id);
+                    using (SqlDataReader reader=cmd.ExecuteReader())
+                    {
+                        Food food = null;
+                        if (reader.Read())
+                        {
+                            food = new Food()
+                            {
+                                Id = id,
+                                FoodName=DbUtils.GetString(reader,"FoodName"),
+                                Description=DbUtils.GetString(reader,"Description"),
+                                Caloric=DbUtils.GetInt(reader,"Caloric"),
+                                ImageURL=DbUtils.GetString(reader,"ImageURL")
+                            };
+                        }
+                        return food;
+                    }
+                    
+                }
+            }
+        }
 
-        //        }
-        //    }
-        //}
     }
 }

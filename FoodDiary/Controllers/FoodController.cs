@@ -27,12 +27,7 @@ namespace FoodDiary.Controllers
         }
 
        
-        //[HttpGet("FoodSchedule/{dateTime}")]
-        //public IActionResult GetFoodScheduleByUserId(DateTime dateTime)
-        //{
-        //    var foods = _foodRepository.GetFoodScheduleByUserId(GetCurrentUserProfile().Id, dateTime);
-        //    return Ok(foods);
-        //}
+       
 
         [HttpPost("add")]
         public IActionResult Post(Food Food)
@@ -41,14 +36,27 @@ namespace FoodDiary.Controllers
             return CreatedAtAction("Post", new { id = Food.Id }, Food);
         }
 
-        //[HttpPost("FoodSchedule")]
-        //public IActionResult Post(FoodSchedule foodSchedule)
-        //{
-        //    _foodRepository.addFoodSchedule(GetCurrentUserProfile().Id, foodSchedule);
-        //    return CreatedAtAction("Post", new { id = foodSchedule.Id }, foodSchedule);
-        //}
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            var food = _foodRepository.GetById(id);
+            if (food == null)
+            {
+                return NotFound();
+            }
+            return Ok(food);
+        }
+        [HttpPut("Edit/{id}")]
+        public IActionResult Put(int id, Food food)
+        {
+            if (id != food.Id)
+            {
+                return BadRequest();
+            }
 
-
+            _foodRepository.Update(food);
+            return NoContent();
+        }
         private UserProfile GetCurrentUserProfile()
         {
             var firebaseUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
