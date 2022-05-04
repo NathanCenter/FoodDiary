@@ -4,6 +4,7 @@ import Login from "../modules/Login";
 import Register from "../modules/Register";
 import FoodForm from "./FoodForm";
 import FoodSchedule from "./FoodScheduleForm";
+import FoodEdit from "./FoodEdit";
 
 
 
@@ -26,10 +27,16 @@ export default function ApplicationViews({ isLoggedIn }) {
       <Route path="/food/add" exact>
         <FoodForm/>
       </Route>
+
+      <Route path="/food/:id(\d+)" exact>
+
+     <FoodEdit/>
+
+      </Route>
       <Route path="/FoodSchedule/Schedule" exact>
         <FoodSchedule/>
       </Route>
-       
+     
       </Switch>
     </main>
   );
