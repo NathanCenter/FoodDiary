@@ -11,7 +11,37 @@ namespace FoodDiary.Repositories
     {
         public FoodScheduleReposity(IConfiguration configuration) : base(configuration) { }
 
-        public List<Food> GetFoodScheduleByUserId(int id, DateTime dateTime)
+        public List<FoodSchedule> GetFoodScheduleAll()
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"Select Id,UserProfileId,FoodId,Date,Meal from FoodSchedule";
+                    var foodSchedules = new List<FoodSchedule>();
+                    using (var reader = cmd.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            foodSchedules.Add(new FoodSchedule {
+
+                                Id = DbUtils.GetInt(reader, "Id"),
+                                UserProfileId=DbUtils.GetInt(reader, "UserProfileId"),
+                                FoodId=DbUtils.GetInt(reader, "FoodId"),
+                                Date= DbUtils.GetDateTime(reader,"Date"),
+                                Meal=DbUtils.GetString(reader,"Meal")
+
+                            });
+                        }
+                    }
+                    return foodSchedules;
+                }
+            }
+        }
+
+      public List<FoodSchedule> GetFoodScheduleByUserId(int id, DateTime dateTime)
         {
             using (var conn = Connection)
             {
@@ -30,33 +60,107 @@ namespace FoodDiary.Repositories
 
                     using (SqlDataReader reader= cmd.ExecuteReader())
                     {
-                        var foods = new List<Food>();
+                        var foodSchedules = new List<FoodSchedule>();
                         while (reader.Read())
                         {
-                            Food food = new Food()
+                            FoodSchedule foodSchedule = new FoodSchedule()
                             {
+                                Id = DbUtils.GetInt(reader, "id"),
+                                
+                                Food = new Food()
+                                {
 
 
-                                Id = DbUtils.GetInt(reader, "FoodId"),
-                                FoodName = DbUtils.GetString(reader, "FoodName"),
-                                Description = DbUtils.GetString(reader, "Description"),
-                                Caloric = DbUtils.GetInt(reader, "Caloric"),
+                                    Id = DbUtils.GetInt(reader, "FoodId"),
+                                    FoodName = DbUtils.GetString(reader, "FoodName"),
+                                    Description = DbUtils.GetString(reader, "Description"),
+                                    Caloric = DbUtils.GetInt(reader, "Caloric"),
+
+
+                                }
 
 
                             };
+                            foodSchedules.Add(foodSchedule);
 
 
 
 
-                            foods.Add(food);
+
+
                        }
-                      return foods;
+                      return foodSchedules;
                   }                     
 
 
 
                }
 
+            }
+        }
+
+        public FoodSchedule GetById(int id)
+        {
+
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"Select fs.id as FoodScheduleId,fs.UserProfileId,fs.FoodId,fs.Date,fs.Meal, f.FoodName,f.Caloric,f.Description from FoodSchedule fs left join 
+Food f on fs.FoodId=f.Id where fs.Id=@FoodScheduleId";
+                    cmd.Parameters.AddWithValue("@FoodScheduleId", id);
+                    FoodSchedule foodSchedule = null;
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            foodSchedule = new FoodSchedule()
+                            {
+                                Id = DbUtils.GetInt(reader, "FoodScheduleId"),
+                                UserProfileId = DbUtils.GetInt(reader, "UserProfileId"),
+                                FoodId = DbUtils.GetInt(reader, "FoodId"),
+                                Date = DbUtils.GetDateTime(reader, "Date"),
+                                Meal = DbUtils.GetString(reader, "Meal"),
+                                
+                            };
+
+                            foodSchedule.Food = new Food()
+                            {
+                                FoodName = DbUtils.GetString(reader, "FoodName"),
+                                Description = DbUtils.GetString(reader, "Description"),
+                                Caloric = DbUtils.GetInt(reader, "Caloric")
+                            };
+
+
+                        }
+
+                    }
+                    return foodSchedule;
+                }
+            }
+        }
+
+        public void DeleteFoodSchedule(int id)
+        {
+
+            using (var conn = Connection)
+            {
+                conn.Open();
+
+                using (var cmd = conn.CreateCommand())
+                {
+                    try
+                    {
+                        cmd.CommandText = @"Delete from FoodSchedule where id=@id";
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.Write(ex);
+                    }
+                }
             }
         }
 
@@ -80,6 +184,7 @@ namespace FoodDiary.Repositories
 
                 }
             }
+
         }
 
     }

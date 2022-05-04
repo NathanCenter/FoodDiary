@@ -20,10 +20,10 @@ export const getAllFood = () => {
     });
   };
 
-  export const getFoodbyUserID=(date)=>
+  export const getFoodbyDate=(date)=>
   {
     return getToken().then((token) => {
-        return fetch(`${apiFood}/${date}`, {
+        return fetch(`${apiFood}/Date/${date}`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`
@@ -101,3 +101,39 @@ export const getAllFood = () => {
       });
     });
   }
+
+  export const getFoodScheduleById=(id)=>{
+    return getToken().then((token) => {
+      return fetch(`${apiFood}/${id}`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }).then(resp => {
+        if (resp.ok) {
+          return resp.json();
+        } else {
+          throw new Error("An unknown error occurred while trying to get food schedule id.");
+        }
+      });
+    });
+
+
+  }
+
+  export const deleteFoodSchedule = (id) => {
+    return getToken().then((token) => {
+      return fetch(`${apiFood}/delete/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }).then((resp) => {
+        if (resp.ok) {
+          return resp.ok;
+        } else {
+          throw new Error("An error occurred deleting favorite");
+        }
+      });
+    });
+  };

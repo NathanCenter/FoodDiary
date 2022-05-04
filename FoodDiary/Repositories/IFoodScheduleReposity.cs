@@ -6,9 +6,13 @@ namespace FoodDiary.Repositories
 {
     public interface IFoodScheduleReposity 
     {
-        public List<Food> GetFoodScheduleByUserId(int id, DateTime dateTime);
-
+        public List<FoodSchedule> GetFoodScheduleByUserId(int id, DateTime dateTime);
+        public List<FoodSchedule> GetFoodScheduleAll();
         public void addFoodSchedule(int id, FoodSchedule foodSchedule);
+
+        FoodSchedule GetById(int id);
+        public void DeleteFoodSchedule(int id);
+
 
     }
 }
