@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { Link } from 'react-router-dom';
 import { getAllFood } from "../modules/FoodManager";
-import { getFoodbyUserID } from "../modules/FoodManager";
+import { getFoodbyDate } from "../modules/FoodManager";
 const FoodDisplay=()=>{
     var today = new Date(),
 
@@ -9,7 +9,7 @@ const FoodDisplay=()=>{
     const [ foods, setFoods ] = useState([]);
     
     useEffect(() => {
-        getFoodbyUserID(date).then(setFoods);
+      getFoodbyDate(date).then(setFoods);
       }, []);
     return (
         <>
@@ -22,10 +22,12 @@ const FoodDisplay=()=>{
                return(
                  <>
                  <div>
-                 <h3 key={f.id}>{f.foodName}   </h3> <Link to={`/Food/${f.id}`}>edit</Link>
+                 <h3 key={f.id}>{f.food.foodName}   </h3> <Link to={`/Food/${f.id}`}>edit</Link>
                   <p>{f.description}</p>
 
-                  <p>Caloric amount: {f.caloric}</p> 
+                  <p>Caloric amount: {f.food.caloric}</p> 
+
+                  <Link to={`/FoodSchedule/delete/${f.id}`}>Remove</Link>
                  </div>
                 
 
