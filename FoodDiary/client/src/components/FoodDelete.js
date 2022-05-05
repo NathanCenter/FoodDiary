@@ -6,22 +6,22 @@ import FoodSchedule from "./FoodScheduleForm";
 const FoodDelete=()=>{
     const {id}=useParams()
 
-    const getFoods = () => {
-        getFoodScheduleById(id).then(foods => setFoodEdit(foods));
+    const getFoodSchedule = () => {
+        getFoodScheduleById(id).then(fs => setFoodSchedule(fs));
       };
       useEffect(() => {
-        getFoods();
+        getFoodSchedule();
       }, []);
 
   
 
-      const [ foods, setFoodEdit ] = useState({});
+      const [ foodSchedule, setFoodSchedule ] = useState({});
 
     
       const submit = (event) =>{
-        console.log(foods.id)
+        
         event.preventDefault();
-        deleteFoodSchedule(foods.id).then(() => history.push("/FoodSchedule"));
+        deleteFoodSchedule(foodSchedule.id).then(() => history.push("/FoodSchedule"));
 
       }
       const history=useHistory();
@@ -30,12 +30,12 @@ return (
     <>
     <h1>Delete from the Schedule</h1>
 
-    <h1>Are you sure you want to remove it from your schedule?</h1>
-    <div key={foods.id}>
-
-    <h1>{foods.food.foodName}</h1>
-        <p>{foods.food.description}</p>
-        <p>{foods.food.caloric}</p>
+    <h3>Are you sure you want to remove it from your schedule?</h3>
+    <div key={foodSchedule?.id}>
+        <p>Food{foodSchedule.food?.foodName}</p>
+        <p>{foodSchedule.food?.description}</p>
+        <p> Caloris: {foodSchedule.food?.caloric}</p>
+        <p>{foodSchedule?.meal}</p>
         </div>
     
    <button  onClick={submit}>Delete</button>
