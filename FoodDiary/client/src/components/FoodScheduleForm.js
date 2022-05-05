@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { addSchedule, getAllFood } from "../modules/FoodManager";
 
 const FoodSchedule=()=>{
-    const today = new Date();
+    
 
     
     const [foods,setFood]=useState([])
