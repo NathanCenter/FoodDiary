@@ -107,7 +107,7 @@ namespace FoodDiary.Repositories
                 conn.Open();
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = @"Select fs.id as FoodScheduleId,fs.UserProfileId,fs.FoodId,fs.Date,fs.Meal, f.FoodName,f.Caloric,f.Description from FoodSchedule fs left join 
+                    cmd.CommandText = @"Select fs.id as FoodScheduleId,fs.UserProfileId,fs.FoodId,fs.Date,fs.Meal, f.id,f.FoodName,f.Caloric,f.Description from FoodSchedule fs left join 
 Food f on fs.FoodId=f.Id where fs.Id=@FoodScheduleId";
                     cmd.Parameters.AddWithValue("@FoodScheduleId", id);
                     FoodSchedule foodSchedule = null;
@@ -127,6 +127,7 @@ Food f on fs.FoodId=f.Id where fs.Id=@FoodScheduleId";
 
                             foodSchedule.Food = new Food()
                             {
+                                Id=DbUtils.GetInt(reader, "Id"),
                                 FoodName = DbUtils.GetString(reader, "FoodName"),
                                 Description = DbUtils.GetString(reader, "Description"),
                                 Caloric = DbUtils.GetInt(reader, "Caloric")

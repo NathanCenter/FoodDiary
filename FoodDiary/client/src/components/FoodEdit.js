@@ -1,5 +1,5 @@
 import { Link ,useParams} from "react-router-dom"
-import { GetFoodById } from "../modules/FoodManager";
+import { GetFoodById,getFoodScheduleById } from "../modules/FoodManager";
 import React, {useEffect, useState} from "react";
 import { useHistory } from "react-router-dom";
 import {EditFoodById} from "../modules/FoodManager";
@@ -8,7 +8,7 @@ const FoodEdit=()=>{
     const {id}=useParams()
    
     const getFoods = () => {
-        GetFoodById(id).then(foods => setFoodEdit(foods));
+      GetFoodById(id).then(foods => setFoodEdit(foods));
       };
       useEffect(() => {
         getFoods();
@@ -52,17 +52,17 @@ const FoodEdit=()=>{
         <>
         
         <label>Food Name</label>
-      <input id="FoodName"defaultValue={foods.foodName} onChange={handleInputChange}/>
+      <input id="FoodName"defaultValue={foods?.foodName} onChange={handleInputChange}/>
       
      
       <label>Food Description</label>
-      <input id="Description" defaultValue={foods.description} onChange={handleInputChange}/>
+      <input id="Description" defaultValue={foods?.description} onChange={handleInputChange}/>
       
       <label>Food calores</label>
-      <input id="Caloric"defaultValue={foods.caloric} onChange={handleInputChange}/>
+      <input id="Caloric"defaultValue={foods?.caloric} onChange={handleInputChange}/>
       
       <label>the Food imageURL</label>
-      <input id="ImageURL" defaultValue={foods.imageURL} onChange={handleInputChange}/>
+      <input id="ImageURL" defaultValue={foods?.imageURL} onChange={handleInputChange}/>
       <button onClick={submit} >Save</button>
         <Link to="/FoodSchedule" >Cancel</Link>
         </>
