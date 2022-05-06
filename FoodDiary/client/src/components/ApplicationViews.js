@@ -32,7 +32,7 @@ export default function ApplicationViews({ isLoggedIn }) {
         <Route path="/FoodSchedule/delete/:id(\d+)" exact>
           <FoodDelete />
         </Route>
-      </Switch>
+      </Switch >
     </main>
   );
 }

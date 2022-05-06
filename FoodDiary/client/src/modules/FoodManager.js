@@ -28,6 +28,7 @@ export const getFoodbyDate = (date) => {
         Authorization: `Bearer ${token}`,
       },
     }).then((resp) => {
+      
       if (resp.ok) {
         return resp.json();
       } else {

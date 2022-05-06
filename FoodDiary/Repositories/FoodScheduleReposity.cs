@@ -61,6 +61,7 @@ namespace FoodDiary.Repositories
                     using (SqlDataReader reader= cmd.ExecuteReader())
                     {
                         var foodSchedules = new List<FoodSchedule>();
+
                         while (reader.Read())
                         {
                             FoodSchedule foodSchedule = new FoodSchedule()

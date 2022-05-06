@@ -13,6 +13,7 @@ export default function Register() {
 
   const [weight, setWeight] = useState();
   const [password, setPassword] = useState();
+  
   const [confirmPassword, setConfirmPassword] = useState();
 
   const registerClick = (e) => {

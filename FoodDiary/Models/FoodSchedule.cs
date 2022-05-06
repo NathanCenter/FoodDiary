@@ -6,7 +6,6 @@ namespace FoodDiary.Models
     {
         public int Id { get; set; }
         public int UserProfileId { get; set; }
-
         public int FoodId { get; set; }
 
         public DateTime Date { get; set; }

@@ -10,6 +10,7 @@ namespace FoodDiary.Repositories
 
         public UserProfile GetByFirebaseUserId(string firebaseUserId)
         {
+
             using (var conn = Connection)
             {
                 conn.Open();
