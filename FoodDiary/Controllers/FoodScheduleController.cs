@@ -38,9 +38,9 @@ namespace FoodDiary.Controllers
         }
 
         [HttpGet("Date/{dateTime}")]
-        public IActionResult GetFoodScheduleByUserId(DateTime dateTime)
+        public IActionResult GetFoodScheduleByDate(DateTime dateTime)
         {
-            var foods = _foodScheduleRepository.GetFoodScheduleByUserId(GetCurrentUserProfile().Id, dateTime);
+            var foods = _foodScheduleRepository.GetFoodScheduleByUserIdAndDate(GetCurrentUserProfile().Id, dateTime);
             return Ok(foods);
         }
 

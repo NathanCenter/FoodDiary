@@ -53,6 +53,7 @@ const FoodDisplay = () => {
             <Link to={`/Food/${f.food.id}`}>edit</Link>
             <p>{f.description}</p>
             <p>Caloric amount: {f.food.caloric}</p>
+            <p>Meal Type: {f.meal}</p>
             <Link to={`/FoodSchedule/delete/${f.id}`}>Remove</Link>
           </div>
         );
