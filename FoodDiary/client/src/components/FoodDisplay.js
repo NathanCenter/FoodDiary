@@ -26,7 +26,7 @@ const FoodDisplay = () => {
       tomorrow.getDate();
 
      SetDate(date);
-  };
+  } ;
 
   const yesterday = () => {
     const yester = new Date(today);

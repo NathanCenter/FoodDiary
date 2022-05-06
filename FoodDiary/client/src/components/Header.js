@@ -11,6 +11,7 @@ import {
 } from "reactstrap";
 import { logout } from "../modules/authManager";
 import Login from "../modules/Login";
+
 import FoodDisplay from "./FoodDisplay";
 
 export default function Header({ isLoggedIn }) {

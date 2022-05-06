@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace FoodDiary.Controllers
 {
     [Route("api/[controller]")]
+
     [ApiController]
     [Authorize]
     public class FoodController : Controller

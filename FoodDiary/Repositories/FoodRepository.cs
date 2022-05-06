@@ -13,6 +13,7 @@ namespace FoodDiary.Repositories
     {
         public FoodRepository(IConfiguration configuration) : base(configuration) { }
 
+
         public List<Food> GetAll()
         {
 

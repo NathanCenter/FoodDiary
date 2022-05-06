@@ -41,6 +41,7 @@ const FoodSchedule = () => {
 
   return (
     <>
+    
       <h1>Food Schedule</h1>
 
       <form className="foodForm">

@@ -18,6 +18,7 @@ const FoodDelete = () => {
     getFoodSchedule();
   }, []);
 
+  
   const [foodSchedule, setFoodSchedule] = useState({});
 
   const submit = (event) => {

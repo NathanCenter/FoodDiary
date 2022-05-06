@@ -65,4 +65,5 @@ const FoodForm = () => {
     </>
   );
 };
+
 export default FoodForm;

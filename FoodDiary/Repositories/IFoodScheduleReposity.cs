@@ -8,6 +8,7 @@ namespace FoodDiary.Repositories
     {
         public List<FoodSchedule> GetFoodScheduleByUserIdAndDate(int id, DateTime dateTime);
         public List<FoodSchedule> GetFoodScheduleAll();
+
         public void addFoodSchedule(int id, FoodSchedule foodSchedule);
 
         FoodSchedule GetById(int id);

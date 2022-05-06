@@ -5,7 +5,8 @@ using System.ComponentModel.DataAnnotations;
 namespace FoodDiary.Models
 {
     public class Food
-    { public int Id { get; set; }
+    {
+        public int Id { get; set; }
 
         public string FoodName { get; set; }
 

@@ -10,6 +10,7 @@ namespace FoodDiary.Repositories
         
         public void Add(int id,Food food);
 
+
         public void Update(Food food);
 
         public Food GetById(int id);
