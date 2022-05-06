@@ -41,7 +41,7 @@ namespace FoodDiary.Repositories
             }
         }
 
-      public List<FoodSchedule> GetFoodScheduleByUserId(int id, DateTime dateTime)
+      public List<FoodSchedule> GetFoodScheduleByUserIdAndDate(int id, DateTime dateTime)
         {
             using (var conn = Connection)
             {
@@ -66,7 +66,9 @@ namespace FoodDiary.Repositories
                             FoodSchedule foodSchedule = new FoodSchedule()
                             {
                                 Id = DbUtils.GetInt(reader, "id"),
-                                
+                                Meal= DbUtils.GetString(reader, "Meal"),
+
+
                                 Food = new Food()
                                 {
 
@@ -108,7 +110,8 @@ namespace FoodDiary.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"Select fs.id as FoodScheduleId,fs.UserProfileId,fs.FoodId,fs.Date,fs.Meal, f.id,f.FoodName,f.Caloric,f.Description from FoodSchedule fs left join 
-Food f on fs.FoodId=f.Id where fs.Id=@FoodScheduleId";
+                Food f on fs.FoodId=f.Id 
+                where fs.Id=@FoodScheduleId";
                     cmd.Parameters.AddWithValue("@FoodScheduleId", id);
                     FoodSchedule foodSchedule = null;
                     using (var reader = cmd.ExecuteReader())
