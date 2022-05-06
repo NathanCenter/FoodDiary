@@ -21,7 +21,7 @@ export default function Register() {
       alert("Passwords don't match. Do better.");
     } else {
       const userProfile = { name, email, height, weight };
-      register(userProfile, password).then(() => history.push("/"));
+      register(userProfile, password).then(() => history.push("/FoodSchedule"));
     }
   };
 

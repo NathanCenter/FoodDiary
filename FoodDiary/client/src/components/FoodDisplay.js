@@ -25,7 +25,7 @@ const FoodDisplay = () => {
       "-" +
       tomorrow.getDate();
 
-    return SetDate(date);
+     SetDate(date);
   };
 
   const yesterday = () => {
@@ -37,7 +37,7 @@ const FoodDisplay = () => {
       +(yester.getMonth() + 1) +
       "-" +
       yester.getDate();
-    return SetDate(date);
+     SetDate(date);
   };
 
   return (
@@ -47,8 +47,8 @@ const FoodDisplay = () => {
       <button onClick={nextDay}>Next Day</button>
       {foods.map((f) => {
         return (
-          <div>
-            <h3 key={f.id}>{f.food.foodName} </h3>
+          <div key={f.id}>
+            <h3>{f.food.foodName} </h3>
 
             <Link to={`/Food/${f.food.id}`}>edit</Link>
             <p>{f.description}</p>
