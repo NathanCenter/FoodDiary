@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useHistory } from "react-router-dom";
 import { register } from "../modules/authManager";
 
 export default function Register() {
   const history = useHistory();
 
- 
   const [name, setName] = useState();
 
   const [email, setEmail] = useState();
-  const [height,setHeight]=useState();
- 
-  const [weight,setWeight]=useState();
+  const [height, setHeight] = useState();
+
+  const [weight, setWeight] = useState();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
 
@@ -21,39 +20,62 @@ export default function Register() {
     if (password && password !== confirmPassword) {
       alert("Passwords don't match. Do better.");
     } else {
-      const userProfile = { name, email,height,weight };
-      register(userProfile, password)
-        .then(() => history.push("/"));
+      const userProfile = { name, email, height, weight };
+      register(userProfile, password).then(() => history.push("/"));
     }
- };
+  };
 
   return (
     <Form onSubmit={registerClick}>
       <fieldset>
         <FormGroup>
-        <Label for="Name">name</Label>
-          <Input id="Name" type="text" onChange={e => setName(e.target.value)} />
+          <Label for="Name">name</Label>
+          <Input
+            id="Name"
+            type="text"
+            onChange={(e) => setName(e.target.value)}
+          />
         </FormGroup>
-        
+
         <FormGroup>
           <Label for="email">Email</Label>
-          <Input id="email" type="text" onChange={e => setEmail(e.target.value)} />
+          <Input
+            id="email"
+            type="text"
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </FormGroup>
         <FormGroup>
           <Label for="height">Height</Label>
-          <Input id="height" type="text" onChange={e => setHeight(e.target.value)} />
+          <Input
+            id="height"
+            type="text"
+            onChange={(e) => setHeight(e.target.value)}
+          />
         </FormGroup>
         <FormGroup>
           <Label for="weight">Weight</Label>
-          <Input id="weight" type="text" onChange={e => setWeight(e.target.value)} />
+          <Input
+            id="weight"
+            type="text"
+            onChange={(e) => setWeight(e.target.value)}
+          />
         </FormGroup>
         <FormGroup>
           <Label for="password">Password</Label>
-          <Input id="password" type="password" onChange={e => setPassword(e.target.value)} />
+          <Input
+            id="password"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </FormGroup>
         <FormGroup>
           <Label for="confirmPassword">Confirm Password</Label>
-          <Input id="confirmPassword" type="password" onChange={e => setConfirmPassword(e.target.value)} />
+          <Input
+            id="confirmPassword"
+            type="password"
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
         </FormGroup>
         <FormGroup>
           <Button>Register</Button>
