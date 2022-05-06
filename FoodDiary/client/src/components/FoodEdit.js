@@ -1,73 +1,78 @@
-import { Link ,useParams} from "react-router-dom"
-import { GetFoodById,getFoodScheduleById } from "../modules/FoodManager";
-import React, {useEffect, useState} from "react";
+import { Link, useParams } from "react-router-dom";
+import { GetFoodById, getFoodScheduleById } from "../modules/FoodManager";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import {EditFoodById} from "../modules/FoodManager";
-const FoodEdit=()=>{
-    //display food
-    const {id}=useParams()
-   
-    const getFoods = () => {
-      GetFoodById(id).then(foods => setFoodEdit(foods));
-      };
-      useEffect(() => {
-        getFoods();
-      }, []);
+import { EditFoodById } from "../modules/FoodManager";
+const FoodEdit = () => {
+  //display food
+  const { id } = useParams();
 
-      const history=useHistory()
-    
-      //edit food
-      const [foods, setFoodEdit] = useState({
-        FoodName:"",
-        Description:"",
-        Caloric:null,
-        ImageURL:""
-      });
-      const handleInputChange=(event)=>{
-        let value = event.target.value;
-        
-        if (value==="caloric"){
-            value=parseInt(value)
+  const getFoods = () => {
+    GetFoodById(id).then((foods) => setFoodEdit(foods));
+  };
+  useEffect(() => {
+    getFoods();
+  }, []);
 
-        }
-      const key = event.target.id;
-      const foodCopy = { ...foods };
-      
-      foodCopy[key] = value;
-      setFoodEdit(foodCopy);  
-  
-     
-     };
+  const history = useHistory();
 
-     const submit = (event) => {
-     
+  //edit food
+  const [food, setFoodEdit] = useState({
+    FoodName: "",
+    Description: "",
+    Caloric: null,
+    ImageURL: "",
+  });
+  const handleInputChange = (event) => {
+    let value = event.target.value;
 
-        event.preventDefault();
-        EditFoodById(foods).then(() => history.push("/FoodSchedule"));
-     
-    
+    if (value === "caloric") {
+      value = parseInt(value);
     }
-    return (
+    const key = event.target.id;
+    const foodCopy = { ...food };
 
-        <>
-        
-        <label>Food Name</label>
-      <input id="FoodName"defaultValue={foods?.foodName} onChange={handleInputChange}/>
-      
-     
+    foodCopy[key] = value;
+    setFoodEdit(foodCopy);
+  };
+
+  const submit = (event) => {
+    event.preventDefault();
+    EditFoodById(food).then(() => history.push("/FoodSchedule"));
+  };
+  return (
+    <>
+      <label>Food Name</label>
+      <input
+        id="FoodName"
+        defaultValue={food?.foodName}
+        onChange={handleInputChange}
+      />
+
       <label>Food Description</label>
-      <input id="Description" defaultValue={foods?.description} onChange={handleInputChange}/>
-      
-      <label>Food calores</label>
-      <input id="Caloric"defaultValue={foods?.caloric} onChange={handleInputChange}/>
-      
-      <label>the Food imageURL</label>
-      <input id="ImageURL" defaultValue={foods?.imageURL} onChange={handleInputChange}/>
-      <button onClick={submit} >Save</button>
-        <Link to="/FoodSchedule" >Cancel</Link>
-        </>
-    )
-    
-}
+      <input
+        id="Description"
+        defaultValue={food?.description}
+        onChange={handleInputChange}
+      />
 
-export default FoodEdit
+      <label>Food calores</label>
+      <input
+        id="Caloric"
+        defaultValue={food?.caloric}
+        onChange={handleInputChange}
+      />
+
+      <label>the Food imageURL</label>
+      <input
+        id="ImageURL"
+        defaultValue={food?.imageURL}
+        onChange={handleInputChange}
+      />
+      <button onClick={submit}>Save</button>
+      <Link to="/FoodSchedule">Cancel</Link>
+    </>
+  );
+};
+
+export default FoodEdit;

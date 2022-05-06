@@ -7,9 +7,9 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink
-} from 'reactstrap';
-import { logout } from '../modules/authManager';
+  NavLink,
+} from "reactstrap";
+import { logout } from "../modules/authManager";
 import Login from "../modules/Login";
 import FoodDisplay from "./FoodDisplay";
 
@@ -20,16 +20,10 @@ export default function Header({ isLoggedIn }) {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        
-        
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             {/* When isLoggedIn === true, we will render the Home link */}
-            {isLoggedIn && (
-              <>
-           
-             </>
-            )}
+            {isLoggedIn && <></>}
           </Nav>
           <Nav navbar>
             {isLoggedIn && (
@@ -42,13 +36,11 @@ export default function Header({ isLoggedIn }) {
                     onClick={logout}
                   >
                     Logout
-                  
                   </a>
                 </NavItem>
                 <Route path="/FoodSchedule" exact>
-                <FoodDisplay/>
+                  <FoodDisplay />
                 </Route>
-               
               </>
             )}
             {!isLoggedIn && (
@@ -57,7 +49,6 @@ export default function Header({ isLoggedIn }) {
                   <NavLink tag={RRNavLink} to="/login">
                     Login
                   </NavLink>
-                  
                 </NavItem>
                 <NavItem>
                   <NavLink tag={RRNavLink} to="/register">
