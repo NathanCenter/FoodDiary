@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 import { addSchedule, getAllFood } from "../modules/FoodManager";
 
-const FoodSchedule = () => {
+const FoodScheduleForm = () => {
   const [foods, setFood] = useState([]);
   const getFoods = () => {
     getAllFood().then((foods) => setFood(foods));
@@ -38,9 +39,22 @@ const FoodSchedule = () => {
     evt.preventDefault();
     addSchedule(copy).then(() => history.push("/FoodSchedule"));
   };
-
+const styleSheet={
+  textAlign: "center",
+}
+const styleButton={
+  width: "200px",
+  height: "35px",
+  borderRadius: "15px",
+  backgroundColor: "#39395f",
+  color: "white",
+  border: 0,
+  textSize: "20px",
+  
+}
   return (
     <>
+    <div style={styleSheet}>
       <h1>Food Schedule</h1>
 
       <form className="foodForm">
@@ -60,11 +74,17 @@ const FoodSchedule = () => {
               </option>
             ))}
           </select>
-          <button onClick={submit}>Add Food to your schedule</button>
+          <br></br>
+          <br></br>
+          <button onClick={submit} style={styleButton}>Add food to your schedule</button>
+          <br></br>
+          <br></br>
+          <Link to="/FoodSchedule" id="goBack">Go Back</Link>
         </div>
       </form>
+      </div>
     </>
   );
 };
 
-export default FoodSchedule;
+export default FoodScheduleForm;

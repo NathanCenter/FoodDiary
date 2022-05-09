@@ -12,6 +12,7 @@ import {
 import { logout } from "../modules/authManager";
 import Login from "../modules/Login";
 import FoodDisplay from "./FoodDisplay";
+import  "../css/styleSheet.css"
 
 export default function Header({ isLoggedIn }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,19 +22,20 @@ export default function Header({ isLoggedIn }) {
     <div>
       <Navbar color="light" light expand="md">
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
+          <Nav className="mr-auto" navbar >
             {/* When isLoggedIn === true, we will render the Home link */}
             {isLoggedIn && <></>}
           </Nav>
           <Nav navbar>
             {isLoggedIn && (
               <>
-                <NavItem>
+                <NavItem >
                   <a
                     aria-current="page"
                     className="nav-link"
-                    style={{ cursor: "pointer" }}
+                    
                     onClick={logout}
+                   
                   >
                     Logout
                   </a>
@@ -46,12 +48,12 @@ export default function Header({ isLoggedIn }) {
             {!isLoggedIn && (
               <>
                 <NavItem>
-                  <NavLink tag={RRNavLink} to="/login">
+                  <NavLink tag={RRNavLink} class="login" to="/login" >
                     Login
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={RRNavLink} to="/register">
+                  <NavLink tag={RRNavLink} class="register"to="/register">
                     Register
                   </NavLink>
                 </NavItem>

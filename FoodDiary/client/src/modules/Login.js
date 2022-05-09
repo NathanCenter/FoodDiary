@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useHistory, Link } from "react-router-dom";
 import { login } from "../modules/authManager";
+import  "../css/styleSheet.css"
 
 export default function Login() {
   const history = useHistory();
@@ -16,33 +17,54 @@ export default function Login() {
       .catch(() => alert("Invalid email or password"));
   };
 
+  const logInStyle = {
+    backgroundColor: "white",
+    textAlign: "center",
+    justifyContent: "space-between",
+    margin: "auto",
+    paddingTop:"10px",
+    paddingBottom:"10px"
+  };
+
+  const formStyle = {
+    paddingBottom: "10px",
+
+  };
+
+  const buttonStyle = {
+    width: "200px",
+    height: "35px",
+    borderRadius: "15px",
+    backgroundColor: "#416a59",
+    color: "white",
+    border: 0,
+    textSize: "20px",
+  };
   return (
-    <Form onSubmit={loginSubmit}>
-      <fieldset>
-        <FormGroup>
-          <Label for="email">Email</Label>
-          <Input
-            id="email"
-            type="text"
-            autoFocus
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="password">Password</Label>
-          <Input
-            id="password"
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Button>Login</Button>
-        </FormGroup>
-        <em>
-          Not registered? <Link to="register">Register</Link>
-        </em>
-      </fieldset>
+    <Form onSubmit={loginSubmit} style={logInStyle}>
+      <FormGroup style={formStyle}>
+        <Label for="email">Email </Label>
+        <Input
+          id="email"
+          type="text"
+          autoFocus
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </FormGroup>
+      <FormGroup style={formStyle}>
+        <Label for="password">Password </Label>
+        <Input
+          id="password"
+          type="password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </FormGroup>
+      <FormGroup>
+        <Button style={buttonStyle}>Login</Button>
+      </FormGroup>
+     
+        Not registered? <Link to="register">Register</Link>
+      
     </Form>
   );
 }

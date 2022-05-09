@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import  "../css/styleSheet.css"
 import { addFood } from "../modules/FoodManager";
 const FoodForm = () => {
   const getFoodData = {
@@ -41,26 +42,43 @@ const FoodForm = () => {
       addFood(food).then(() => history.push("/FoodSchedule"));
     }
   };
-
+  const formStyle={
+    textAlign: "center",
+  }
+  const styleButton={
+    width: "200px",
+    height: "35px",
+    borderRadius: "15px",
+    backgroundColor: "#39395f",
+    color: "white",
+    border: 0,
+    textSize: "20px",
+    
+  }
   return (
     <>
-      <form className="foodForm">
+      <form className="foodForm" style={formStyle}>
         <h1>Food Form</h1>
-        <fieldset>
-          <label>Food Name</label>
-          <input id="FoodName" onChange={handleInputChange}></input>
-
-          <label>Description</label>
-          <input id="Description" onChange={handleInputChange}></input>
-
-          <label>Caloric</label>
-          <input id="Caloric" onChange={handleInputChange}></input>
-
-          <label>ImageURL</label>
-          <input id="ImageURL" onChange={handleInputChange}></input>
-        </fieldset>
-
-        <button onClick={submit}>Add Food to your list</button>
+        <p>
+          <label>Food Name</label>&nbsp;
+          <input id="FoodName" onChange={handleInputChange}></input> &nbsp;
+          </p>
+          <label>Description</label> &nbsp;
+          <p>
+          <textarea rows="5" cols="50" id="Description" onChange={handleInputChange}/> &nbsp;
+          </p>
+          <br></br>
+        
+          <label>Calories</label> &nbsp;
+          <input id="Caloric" onChange={handleInputChange}></input>&nbsp;
+          
+         
+       <br></br>
+       <br></br>
+        <button onClick={submit} style={styleButton}>Add Food to your list</button>
+        <br></br>
+        <br></br>
+        <Link to="/FoodSchedule" id="goBack"  style={{textDecoration: 'none',color:"#39395f", fontSize:"20px"}}>Go Back</Link>
       </form>
     </>
   );

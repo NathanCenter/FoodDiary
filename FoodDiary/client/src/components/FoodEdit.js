@@ -3,6 +3,7 @@ import { GetFoodById, getFoodScheduleById } from "../modules/FoodManager";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { EditFoodById } from "../modules/FoodManager";
+import  "../css/styleSheet.css"
 const FoodEdit = () => {
   //display food
   const { id } = useParams();
@@ -40,37 +41,52 @@ const FoodEdit = () => {
     event.preventDefault();
     EditFoodById(food).then(() => history.push("/FoodSchedule"));
   };
+  const formStyle={
+    textAlign: "center",
+  }
+  const buttonStyle = {
+    width: "200px",
+    height: "35px",
+    borderRadius: "15px",
+    backgroundColor: "#39395f",
+    color: "white",
+    border: 0,
+    textSize: "20px",
+  };
+  
+  
   return (
     <>
-      <label>Food Name</label>
+    <div style={formStyle}>
+      <label>Food Name</label> &nbsp;
       <input
         id="FoodName"
         defaultValue={food?.foodName}
         onChange={handleInputChange}
       />
-
+      <p>
       <label>Food Description</label>
-      <input
+      <br></br>
+      <textarea rows="5" cols="50"
         id="Description"
         defaultValue={food?.description}
         onChange={handleInputChange}
-      />
+       
+      /></p>
 
-      <label>Food calores</label>
+      <label>Food calores</label> &nbsp;
       <input
         id="Caloric"
         defaultValue={food?.caloric}
         onChange={handleInputChange}
       />
+    <p>
 
-      <label>the Food imageURL</label>
-      <input
-        id="ImageURL"
-        defaultValue={food?.imageURL}
-        onChange={handleInputChange}
-      />
-      <button onClick={submit}>Save</button>
-      <Link to="/FoodSchedule">Cancel</Link>
+       
+      <button onClick={submit} style={buttonStyle}>Save</button> &nbsp;
+      <Link to="/FoodSchedule" style={{textDecoration: 'none',color:"#39395f", fontSize:"20px"}}>Cancel</Link>
+      </p>
+      </div>
     </>
   );
 };
