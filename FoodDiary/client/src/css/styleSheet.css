@@ -1,0 +1,26 @@
+.login{
+   
+    color:"#39395f";
+   
+
+}
+.login:visited{
+    text-decoration: none; 
+    
+}
+.register{
+    
+    text-decoration: none;
+    
+}
+
+ul{
+    list-style-type: none;
+}
+
+body{
+    background-color: #f5eec2;
+}
+textarea{
+    resize: none;
+}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getAllFood } from "../modules/FoodManager";
 import { getFoodbyDate } from "../modules/FoodManager";
+import  "../css/styleSheet.css"
 const FoodDisplay = () => {
   let today = new Date();
   let date =
@@ -39,34 +40,51 @@ const FoodDisplay = () => {
       yester.getDate();
      SetDate(date);
   };
+const styleButton={
+  width: "200px",
+  height: "35px",
+  borderRadius: "15px",
+  backgroundColor: "#39395f",
+  color: "white",
+  border: 0,
+  textSize: "20px",
+  
+}
 
   return (
     <>
-      <button onClick={yesterday}>Yesterday</button>
+    <br></br>
+    <div>
+      <button onClick={yesterday} style={styleButton}>Yesterday</button>
       <h1>{newDate}</h1>
-      <button onClick={nextDay}>Next Day</button>
+      
+      <button onClick={nextDay} style={styleButton}>Next Day</button>
       {foods.map((f) => {
         return (
-          <div key={f.id}>
-            <h3>{f.food.foodName} </h3>
+          <div key={f.id} >
+            <h2 >{f.food.foodName} </h2>
 
-            <Link to={`/Food/${f.food.id}`}>edit</Link>
+            <Link to={`/Food/${f.food.id}`} style={{textDecoration: 'none',color:"#39395f", fontSize:"20px"}}>edit</Link>
             <p>{f.description}</p>
-            <p>Caloric amount: {f.food.caloric}</p>
-            <p>Meal Type: {f.meal}</p>
-            <Link to={`/FoodSchedule/delete/${f.id}`}>Remove</Link>
+            <p style={{fontSize:"20px"}}>Caloric amount: {f.food.caloric}</p>
+            <p style={{fontSize:"20px"}}>Meal Type: {f.meal}</p>
+            <Link to={`/FoodSchedule/delete/${f.id}`} style={{textDecoration: 'none',color:"#39395f", fontSize:"20px"}}>Remove</Link>
           </div>
         );
       })}
-      <h1>total caloric intake for the day: </h1>
+      <h3>total caloric intake for the day: </h3>
       {foods.map((c) => {
         total += c.food.caloric;
       })}
       <p>{total}</p>
 
-      <Link to="/Food/add"> Add Food </Link>
+     
+      <Link to="/Food/add" id="addFood" style={{textDecoration: 'none',color:"#39395f", fontSize:"20px"}}> Add Food </Link>
       <br></br>
-      <Link to="/FoodSchedule/Schedule"> Add Food Schedule </Link>
+      <Link to="/FoodSchedule/Schedule"  style={{textDecoration: 'none', color:"#39395f" ,fontSize:"20px"}}> Add Food Schedule </Link>
+      
+     
+      </div>
     </>
   );
 };

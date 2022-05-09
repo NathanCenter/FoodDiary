@@ -27,20 +27,35 @@ const FoodDelete = () => {
     );
   };
   const history = useHistory();
+  const formView={
+    margin:"20px"
+  }
+  const buttonStyle = {
+    width: "200px",
+    height: "35px",
+    borderRadius: "15px",
+    backgroundColor: "#39395f",
+    color: "white",
+    border: 0,
+    textSize: "20px",
+  };
   return (
     <>
+    <div key={foodSchedule?.id} style={formView}>
       <h1>Delete from the Schedule</h1>
 
       <h3>Are you sure you want to remove it from your schedule?</h3>
-      <div key={foodSchedule?.id}>
-        <p>Food{foodSchedule.food?.foodName}</p>
-        <p>{foodSchedule.food?.description}</p>
-        <p> Caloris: {foodSchedule.food?.caloric}</p>
-        <p>{foodSchedule?.meal}</p>
-      </div>
+      
+          
+        <h1>Food Name: {foodSchedule.food?.foodName}</h1>
+        <p><strong>Description: </strong>&nbsp;{foodSchedule.food?.description}</p>
+        <p> <strong>Caloris: </strong>&nbsp;{foodSchedule.food?.caloric}</p>
+        <p><strong>Meal type:</strong>&nbsp;{foodSchedule?.meal}</p>
+     
 
-      <button onClick={submit}>Delete</button>
-      <Link to="/FoodSchedule">Cancel</Link>
+      <button onClick={submit} style={buttonStyle}>Delete</button>&nbsp;
+      <Link to="/FoodSchedule" style={{textDecoration: 'none',color:"#39395f", fontSize:"20px"}}>Cancel</Link>
+      </div>
     </>
   );
 };
