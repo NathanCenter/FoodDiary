@@ -66,13 +66,14 @@ const styleButton={
 
             <Link to={`/Food/${f.food.id}`} style={{textDecoration: 'none',color:"#39395f", fontSize:"20px"}}>edit</Link>
             <p>{f.description}</p>
-            <p style={{fontSize:"20px"}}>Caloric amount: {f.food.caloric}</p>
-            <p style={{fontSize:"20px"}}>Meal Type: {f.meal}</p>
+            <p style={{fontSize:"20px"}}><strong>Caloric amount:</strong> {f.food.caloric}</p>
+            <p> <strong>Description: </strong> {f.food.description}</p>
+            <p style={{fontSize:"20px"}}><strong>Meal Type:</strong> {f.meal}</p>
             <Link to={`/FoodSchedule/delete/${f.id}`} style={{textDecoration: 'none',color:"#39395f", fontSize:"20px"}}>Remove</Link>
           </div>
         );
       })}
-      <h3>total caloric intake for the day: </h3>
+      <h3>Total caloric intake for the day: </h3>
       {foods.map((c) => {
         total += c.food.caloric;
       })}

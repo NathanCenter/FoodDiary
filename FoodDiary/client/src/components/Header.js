@@ -35,7 +35,7 @@ export default function Header({ isLoggedIn }) {
                     className="nav-link"
                     
                     onClick={logout}
-                   
+                    to="/login"
                   >
                     Logout
                   </a>

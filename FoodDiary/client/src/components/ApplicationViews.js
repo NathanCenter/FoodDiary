@@ -16,9 +16,8 @@ export default function ApplicationViews({ isLoggedIn }) {
         <Route path="/" exact>
           {isLoggedIn?  <FoodDisplay />: <Redirect to="/login"/>}
         </Route>
-        <Route path="/FoodSchedule"  >
-          {isLoggedIn?  <FoodDisplay />: <Redirect to="/login"/>}
-        </Route>
+      
+      
         <Route path="/login" >
         <Login />
 

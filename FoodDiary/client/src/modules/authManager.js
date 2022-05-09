@@ -1,5 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/auth";
+import { Switch, Route, Redirect } from "react-router-dom";
+import Login from "../modules/Login";
 
 const _apiUrl = "/api/userprofile";
 
@@ -51,7 +53,8 @@ export const login = (email, pw) => {
 
 
 export const logout = () => {
-  firebase.auth().signOut()
+  firebase.auth().signOut();
+  
 };
 
 
