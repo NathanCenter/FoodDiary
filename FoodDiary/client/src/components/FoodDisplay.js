@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getAllFood } from "../modules/FoodManager";
 import { getFoodbyDate } from "../modules/FoodManager";
-import  "../css/styleSheet.css"
+import "../css/styleSheet.css"
 const FoodDisplay = () => {
   let today = new Date();
   let date =
@@ -54,7 +54,7 @@ const styleButton={
   return (
     <>
     <br></br>
-    <div>
+    <div  id="form">
       <button onClick={yesterday} style={styleButton}>Yesterday</button>
       <h1>{newDate}</h1>
       

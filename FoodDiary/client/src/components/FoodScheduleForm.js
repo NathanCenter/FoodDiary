@@ -61,7 +61,7 @@ const styleButton={
         <select id="meal" onChange={handleInputChange}>
           <option value="Dinner">Dinner</option>
           <option value="Lunch">Lunch</option>
-          <option value="BreakFast">BreakFast</option>
+          <option value="Breakfast">Breakfast</option>
           <option value="Snack">Snack</option>
         </select>
 
