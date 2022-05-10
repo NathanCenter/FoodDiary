@@ -17,14 +17,6 @@ export default function Login() {
       .catch(() => alert("Invalid email or password"));
   };
 
-  const logInStyle = {
-    backgroundColor: "white",
-    textAlign: "center",
-    justifyContent: "space-between",
-    margin: "auto",
-    paddingTop:"10px",
-    paddingBottom:"10px"
-  };
 
   const formStyle = {
     paddingBottom: "10px",
@@ -41,7 +33,7 @@ export default function Login() {
     textSize: "20px",
   };
   return (
-    <Form onSubmit={loginSubmit} style={logInStyle}>
+    <Form onSubmit={loginSubmit}  id="logInForm">
       <FormGroup style={formStyle}>
         <Label for="email">Email </Label>
         <Input

@@ -13,6 +13,7 @@ import { logout } from "../modules/authManager";
 import Login from "../modules/Login";
 import FoodDisplay from "./FoodDisplay";
 import  "../css/styleSheet.css"
+import { useHistory, Link } from "react-router-dom";
 
 export default function Header({ isLoggedIn }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,15 +31,16 @@ export default function Header({ isLoggedIn }) {
             {isLoggedIn && (
               <>
                 <NavItem >
-                  <a
+                  <Link
                     aria-current="page"
                     className="nav-link"
                     
                     onClick={logout}
                     to="/login"
+                    style={{textDecoration: 'none',color:"#39395f", fontSize:"20px"}}
                   >
                     Logout
-                  </a>
+                  </Link>
                 </NavItem>
                 <Route path="/FoodSchedule" exact>
                   <FoodDisplay />
@@ -48,12 +50,12 @@ export default function Header({ isLoggedIn }) {
             {!isLoggedIn && (
               <>
                 <NavItem>
-                  <NavLink tag={RRNavLink} class="login" to="/login" >
+                  <NavLink tag={RRNavLink} class="login" to="/login"  style={{textDecoration: 'none',color:"#39395f", fontSize:"20px"}}>
                     Login
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={RRNavLink} class="register"to="/register">
+                  <NavLink tag={RRNavLink} class="register"to="/register" style={{textDecoration: 'none',color:"#39395f", fontSize:"20px"}}>
                     Register
                   </NavLink>
                 </NavItem>

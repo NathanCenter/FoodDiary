@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useHistory } from "react-router-dom";
 import { register } from "../modules/authManager";
+import "../css/styleSheet.css"
 
 export default function Register() {
   const history = useHistory();
@@ -25,12 +26,7 @@ export default function Register() {
     }
   };
 
-  const registerStyle = {
-    backgroundColor: "white",
-    textAlign: "center",
-    paddingTop:"10px",
-    paddingBottom:"10px"
-  };
+
   const formStyle = {
     paddingBottom: "10px",
 
@@ -46,7 +42,7 @@ export default function Register() {
     textSize: "20px",
   };
   return (
-    <Form onSubmit={registerClick} style={registerStyle}> &nbsp;
+    <Form onSubmit={registerClick} id="registerStyle"> &nbsp;
       <FormGroup style={formStyle}>
         <Label for="Name">Name</Label>  &nbsp;
         <Input

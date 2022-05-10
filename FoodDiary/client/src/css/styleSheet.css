@@ -24,3 +24,28 @@ body{
 textarea{
     resize: none;
 }
+
+#form{
+    width: 222px;
+    padding-inline: 27px;
+}
+#logInForm{
+    background-color: white;
+    text-align: center;
+    justify-content: space-between;
+    padding-top: 24px;
+    padding-bottom: 23px;
+    margin: 65px 70px;
+    max-height: 124px;
+
+}
+#registerStyle
+{     background-color: white;
+    text-align: center;
+    justify-content: space-between;
+    padding-top: 8px;
+    padding-bottom: 23px;
+    margin: 65px 70px;
+    max-height: 250px;
+
+}

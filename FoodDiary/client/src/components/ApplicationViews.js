@@ -18,7 +18,7 @@ export default function ApplicationViews({ isLoggedIn }) {
         </Route>
       
       
-        <Route path="/login" >
+        <Route path="/login"  style={{textDecoration: 'none',color:"#39395f", fontSize:"20px"}}>
         <Login />
 
         </Route>
