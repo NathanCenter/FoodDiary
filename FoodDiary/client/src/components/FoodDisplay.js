@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { getAllFood } from "../modules/FoodManager";
 import { getFoodbyDate } from "../modules/FoodManager";
 import "../css/styleSheet.css"
+import {_saveUser} from "../modules/authManager"
+import {CurrentName} from "../modules/authManager"
 const FoodDisplay = () => {
   let today = new Date();
   let date =
@@ -14,6 +16,16 @@ const FoodDisplay = () => {
       setFoods(data);
     });
   }, [newDate]);
+
+  const [userName,setUserName]=useState([]);
+  useEffect(()=>{
+    CurrentName().then((userObject)=>{
+      setUserName(userObject.name)
+      
+    })
+
+  },[])
+    
   let total = 0;
 
   const nextDay = () => {
@@ -51,9 +63,11 @@ const styleButton={
   
 }
 
+
   return (
     <>
     <br></br>
+    <div> <h1>Hello, {`${userName}`}!</h1></div>
     <div  id="form">
       <button onClick={yesterday} style={styleButton}>Yesterday</button>
       <h1>{newDate}</h1>

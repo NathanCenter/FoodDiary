@@ -36,7 +36,8 @@ textarea{
     padding-top: 24px;
     padding-bottom: 23px;
     margin: 65px 70px;
-    max-height: 124px;
+    max-height: 128px;
+    min-width: 400px;
 
 }
 #registerStyle

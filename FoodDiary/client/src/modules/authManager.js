@@ -3,6 +3,7 @@ import "firebase/auth";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Login from "../modules/Login";
 
+
 const _apiUrl = "/api/userprofile";
 
 const _doesUserExist = (firebaseUserId) => {
@@ -14,8 +15,16 @@ const _doesUserExist = (firebaseUserId) => {
       }
     }).then(resp => resp.ok));
 };
-
-const _saveUser = (userProfile) => {
+export const CurrentName=()=>{
+  return getToken().then((token) =>
+  fetch(`${_apiUrl}/CurrentUserName`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  }).then(resp => resp.json()));
+};
+ const _saveUser = (userProfile) => {
   return getToken().then((token) =>
     fetch(_apiUrl, {
       method: "POST",

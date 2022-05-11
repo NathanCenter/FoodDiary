@@ -48,6 +48,16 @@ namespace FoodDiary.Controllers
                 nameof(GetByFirebaseUserId), new { firebaseUserId = userProfile.FirebaseUserId }, userProfile);
         }
 
+        [HttpGet("CurrentUserName")]
+        public IActionResult  GetUserName()
+        {
+            var userProfile = _userProfileRepository.GetUserName(GetCurrentUserProfile().Id);
+            if (userProfile == null)
+            {
+                return NotFound();
+            }
+            return Ok(userProfile);
+        }
         private UserProfile GetCurrentUserProfile()
         {
             var firebaseUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;

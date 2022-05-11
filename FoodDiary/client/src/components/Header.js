@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import { NavLink as RRNavLink, Route } from "react-router-dom";
 import {
   Collapse,
@@ -15,9 +15,11 @@ import FoodDisplay from "./FoodDisplay";
 import  "../css/styleSheet.css"
 import { useHistory, Link } from "react-router-dom";
 
+
 export default function Header({ isLoggedIn }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+
 
   return (
     <div>
