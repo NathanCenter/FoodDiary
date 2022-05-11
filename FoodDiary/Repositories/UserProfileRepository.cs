@@ -62,6 +62,36 @@ namespace FoodDiary.Repositories
                 }
             }
         }
+
+        public UserProfile GetUserName(int Id)
+        {
+
+            using (var conn = Connection)
+            {
+
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"select Id, Name,Email,Height,Weight from UserProfile 
+                    WHERE id = @id";
+                    DbUtils.AddParameter(cmd, "@id", Id);
+
+                    UserProfile userProfile = null;
+                    var reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        userProfile = new UserProfile()
+                        {
+
+                            Id = DbUtils.GetInt(reader, "Id"),
+                            Name = DbUtils.GetString(reader, "Name"),
+                        };
+                     }
+                    reader.Close();
+                    return userProfile;
+                }
+            }
+        }
         
     }
 }
