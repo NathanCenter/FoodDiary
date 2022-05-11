@@ -9,8 +9,10 @@ Special thanks to the Doug, Fred,Sara, Issac, Nate,Jury and everyoneone from coh
 1. In order to start download the clone down the app and run it first visual studio.
 2. then run react in your termanal.
 
-# My wireframe:
+# My ERD:
 ![image](https://user-images.githubusercontent.com/34755641/167882230-ab5b4f7a-cc7d-4d39-8ae7-b2369d1feee3.png)
+# My Wire Frame
+![image](https://user-images.githubusercontent.com/34755641/167884532-41bfcb24-daed-4af3-ab51-91c0265ef3d5.png)
 
 
 # My planning document:
