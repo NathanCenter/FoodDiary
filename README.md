@@ -7,10 +7,11 @@ Special thanks to the Doug, Fred,Sara, Issac, Nate,Jury and everyoneone from coh
 
 
 1. In order to start download the clone down the github repo
-2. open up the FoodDiary.sln in visual studio.
-3. Run the app.
-4. Once a new web browser opens.
-5. then run npm start in your termanal.
+2. open up the FoodDiary.sln in visual studio and run the app.
+3. Once a new web browser opens.
+4. then run npm start in your termanal.
+5. Create a new user and start adding food to the database
+6. Then add the food to your schedule.
 
 # My ERD:
 ![image](https://user-images.githubusercontent.com/34755641/167882230-ab5b4f7a-cc7d-4d39-8ae7-b2369d1feee3.png)
