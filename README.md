@@ -15,3 +15,10 @@ My wireframe:
 
 My planning document:
 https://docs.google.com/document/d/1e8pc5M_m0Tf044e5tpQVreAmM_7wPwxRgKlHmjmzuJI/edit?usp=sharing 
+
+
+Screenshots:
+![image](https://user-images.githubusercontent.com/34755641/167883283-fe093fc4-5ca6-46a5-a4cf-0a5f007ec80c.png)
+
+![image](https://user-images.githubusercontent.com/34755641/167882955-a15945a6-c2eb-48aa-b4e5-07eba91cb5dd.png)
+![image](https://user-images.githubusercontent.com/34755641/167883067-0334d75f-bf14-466c-b86e-0c8ee4557d71.png)
