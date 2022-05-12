@@ -60,16 +60,16 @@ const FoodForm = () => {
       <form className="foodForm" style={formStyle}>
         <h1>Food Form</h1>
         <p>
-          <label>Food Name</label>&nbsp;
+          <label>Food Name:</label>&nbsp;
           <input id="FoodName" onChange={handleInputChange}></input> &nbsp;
           </p>
-          <label>Description</label> &nbsp;
+          <label><u>Description</u></label> &nbsp;
           <p>
           <textarea rows="5" cols="50" id="Description" onChange={handleInputChange}/> &nbsp;
           </p>
           <br></br>
         
-          <label>Calories</label> &nbsp;
+          <label>Calories:</label> &nbsp;
           <input id="Caloric" onChange={handleInputChange}></input>&nbsp;
           
          

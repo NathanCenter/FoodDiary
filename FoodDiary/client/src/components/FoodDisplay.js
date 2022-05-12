@@ -67,7 +67,7 @@ const styleButton={
   return (
     <>
     <br></br>
-    <div> <h1>Hello, {`${userName}`}!</h1></div>
+    <div class="userName"> <h1>Hello, {`${userName}`}!</h1></div>
     <div  id="form">
       <button onClick={yesterday} style={styleButton}>Yesterday</button>
       <h1>{newDate}</h1>

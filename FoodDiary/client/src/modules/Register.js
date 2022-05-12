@@ -3,6 +3,7 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useHistory } from "react-router-dom";
 import { register } from "../modules/authManager";
 import "../css/styleSheet.css"
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function Register() {
   const history = useHistory();
@@ -94,6 +95,8 @@ export default function Register() {
       </FormGroup>
       <FormGroup style={formStyle}>
         <Button style={buttonStyle}>Register</Button>
+        <br></br>
+        <Link to="Login" style={{textDecoration: 'none',color:"#39395f", fontSize:"20px"}}>Go back</Link>
       </FormGroup>
     </Form>
   );
