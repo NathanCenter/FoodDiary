@@ -1,11 +1,9 @@
 # FoodDiary
-When you eat food for the day how would you count the calories.
-This project is for weight watchers and gym goers.
-The project purpose is for keeps track of what food a person eats during the day.
+Since more and more poeple are being health conscious. This web application is for the gym goes and weight watchers. Most poeple have a hard time counting calories throught the day. The main features of this app will let you count calories and throughout the day. The user can see what they ate the day before.
+# Contributions 
+Special thanks to the Doug, Fred,Sara, Issac, Nate,Jury and everyoneone from cohort 53.
 
-Special thanks to the Doug, Fred,Sara, Issac, Nate,Jury and everyoneone from cohort 53 helped.
-
-
+# Setup
 1. In order to start download the clone down the github repo
 2. open up the FoodDiary.sln in visual studio and run the app.
 3. Once a new web browser opens.
