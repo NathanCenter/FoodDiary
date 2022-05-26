@@ -1,5 +1,5 @@
 # FoodDiary
-Since more and more poeple are being health conscious. This web application is for the gym goes and weight watchers. Most poeple have a hard time counting calories throught the day. The main features of this app will let you count calories and throughout the day. The user can see what they ate the day before.
+Since more and more people are being health conscious. This web application is for the gym goes and weight watchers. Most people have a hard time counting calories throughout the day. The main features of this app will let you count calories throughout the day. The user can see what they ate the day before.
 # Contributions 
 Special thanks to the Doug, Fred,Sara, Issac, Nate,Jury and everyone from cohort 53.
 
